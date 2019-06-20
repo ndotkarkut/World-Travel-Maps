@@ -10,6 +10,10 @@ router.get('/', function(req, res, next) {
 
 router.get('/bloomaway', function(req, res, next) {
   res.render('bloomaway');
-})
+});
+
+router.get('/palestine', function(req, res, next) {
+  res.render('palestine_no_preload');
+});
 
 module.exports = router;
