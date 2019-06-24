@@ -203,8 +203,8 @@
         </a-entity>
       </a-entity>
         
-      <a-entity id="menuBack" mixin="button" text="value: Back to Main Menu" scale="1.5 1.5 1.5" rotation="-90 0 0" position="0 -0.6 -1.25" proxy-event="event: click; to: a-scene; as:menuBack" bind-toggle__raycastable="background !== 'main'" bind__visible="background !== 'main'" render-order="menuItem"></a-entity>
-      <a-entity id="mapShow" mixin="button" text="value: Show Map" scale="1.5 1.5 1.5" rotation="-90 0 0" position="0 -0.6 -2.25" bind-toggle__raycastable="background === 'minimap'" bind__visible="background === 'minimap'" environment-changer></a-entity>
+      <a-entity id="menuBack" mixin="button" text="value: Back to Main Menu" scale="1.5 1.5 1.5" rotation="-90 0 0" position="0 0.1 -1.25" proxy-event="event: click; to: a-scene; as:menuBack" bind-toggle__raycastable="background !== 'main'" bind__visible="background !== 'main'" render-order="menuItem"></a-entity>
+      <a-entity id="mapShow" mixin="button" text="value: Show Map" scale="1.5 1.5 1.5" rotation="-90 0 0" position="0 0.1 -2.25" bind-toggle__raycastable="background === 'minimap'" bind__visible="background === 'minimap'" environment-changer></a-entity>
       
         <!-- Environment Menu. -->
         <a-entity id="bethlehemMenu" mixin="minimap" material="shader: flat; src: #bethlehem-menu" bind__visible="menu === 'bethlehem' && background !== 'minimap'">
@@ -296,6 +296,7 @@
           <a-entity class="buttons">
             <a-entity mixin="pageButton" position="-0.50 0.55 0.02" event-set__click="_target: #image-360; _delay: 300; material.color: black" videohandler="src: #kafr-qaddam_vid" bind-toggle__raycastable="menu === 'kafrqaddam'" environment-changer="setBackground: kafr">
               <a-videosphere src="#kafr-qaddam_vid" radius="500" bind__visible="background === 'kafr'"></a-videosphere>
+              <a-plane rotation="-90 0 0" height="1000" width="1000" material="color: black" position="0 -2 0"></a-plane>
             </a-entity>
             </a-entity>
         </a-entity>
