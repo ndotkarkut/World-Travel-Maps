@@ -74,11 +74,15 @@
       init:function(){
       
       document.querySelector('#kafr-qaddam_vid').pause();
-      };
-      if (state.background === 'kafr'){
+      
+      this.el.addEventListener('click', () => {
+        if (state.background === 'kafr'){
         document.querySelector('#kafr-qaddam_vid').play();
       } else {
         document.querySelector('#kafr-qaddam_vid').pause();
+      }
+      });
+      
       }
       })
       </script>
