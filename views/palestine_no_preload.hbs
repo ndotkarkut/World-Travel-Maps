@@ -19,7 +19,6 @@
     <script src="https://unpkg.com/aframe-state-component@6.6.0/dist/aframe-state-component.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@5/dist/aframe-event-set-component.min.js"></script>
     
-    
     <!-- State definition. -->
     <script src="./scripts/state.js"></script>
     
@@ -86,6 +85,18 @@
       }
       })
       </script>
+    <script>
+    AFRAME.registerComponent('listener', {
+  init: function() {
+    this.el.addEventListener('mouseenter', (e) => {
+      this.el.setAttribute('text, ''visible', 'true');
+    })
+    this.el.addEventListener('mouseleave', (e) => {
+      this.el.setAttribute('text', 'visible', 'false');
+    })
+  }
+})
+    </script>
   </head>
   <body>
     <a-scene kafr-video render-order="menuBackground, menuItem, button">
@@ -103,7 +114,7 @@
         <img id="qalandia-menu" crossorigin="anonymous" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fqalandia.png?1559591870612">
         <img id="kafr-qaddam-menu" crossorigin="anonymous" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fkfar%20Qaddum.png?1559591869053">
         <img id="tel-aviv-menu" crossorigin="anonymous" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Ftelaviv.png?1559591870508">
-        
+        <img id="birzeit-menu" crossorigin="anonymous" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2FScreenshot%20(2).png?v=1561395752380">
         <!-- Assets .obj and .mtl used to materialize the Quito mountain model-->
         <a-asset-item id="mount-obj" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Flowpolymountains-1.obj?1559326651212"></a-asset-item>
         <a-asset-item id="mount-mtl" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Flowpolymountains-1.mtl?1559326651149"></a-asset-item> 
@@ -126,6 +137,7 @@
         <!-- Base mixins-->
         <a-mixin id="font" text="font: roboto"></a-mixin>
         <a-mixin id="textbox" geometry="primitive: plane; height: 0.2; width: 0.5" material="color: black"></a-mixin>
+        <a-mixin id="pinText" listener mixin="font" text="align: center; width: 2.5; zOffset: 0.01; color: black" position="0 0.1 0" ></a-mixin>
         
         <!-- Button mixins-->
         <a-mixin id="buttonBackground" mixin="textbox" ></a-mixin>
@@ -138,6 +150,7 @@
         <a-mixin id="pageButton" geometry="primitive: plane; width: 0.15; height: 0.15" material="src: #pin_src; shader: flat; transparent: true" environment-changer="setBackground: minimap"
                  animation__mouseenter="property: components.material.material.color; type: color; from: #FFF; to: #AAF; dur: 100; startEvents: mouseenter"
                  animation__mouseleave="property: components.material.material.color; type: color; from: #AAF; to: #FFF; dur: 100; startEvents: mouseleave"
+                 
                  proxy-event="event: click; to: #image-360; as: fade"></a-mixin>
         <a-mixin id="minimap" geometry="primitive: plane; height: 3; width: 3" position="2.5 1 -5" rotation="0 -33 0" ></a-mixin>
       
@@ -147,15 +160,19 @@
         
         <a-mixin id="videoPlayer" geometry="primitive: plane; height: 2; width: 3" material="shader: flat" rotation="180 0 0"></a-mixin>
         
-        <video id="qalandia_checkpoint_vid" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Forigin_0.mp4?v=1561130812264"></video>
-        <video id="qalandia_traffic_vid" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Forigin_4.mp4?v=1561129366071"></video>
-        <video id="jericho_vid" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2FVID_20190124_101544.mp4?v=1560870728010"></video>
-        <video id="bethlehem_vid1" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2FDj-bland.mp4?v=1561061953843"></video>
-        <video id="ramallah_vid1" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2F00040.mp4?v=1561134542402"></video>
-        <video id="ramallah_vid2" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2F00125_Trim.mp4?v=1561135763147"></video>
-        <video id="jerusalem_gate_vid" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Forigin_1.mp4?v=1561138342770"></video>
-        <video id="jerusalem_roof_vid" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Forigin_0%20(1).mp4?v=1561138975151"></video>
-        <video  id="kafr-qaddam_vid" preload="auto" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2F3d(2).mp4?v=1559745270352"></video>
+        <video id="qalandia_checkpoint_vid" preload="auto" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Forigin_0.mp4?v=1561130812264"></video>
+        <video id="qalandia_traffic_vid" preload="auto" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Forigin_4.mp4?v=1561129366071"></video>
+        <video id="jericho_vid" preload="auto" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2FVID_20190120_170302.mp4?v=1561392208546"></video>
+        <video id="bethlehem_vid1" preload="auto" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2FDj-bland.mp4?v=1561061953843"></video>
+        <video id="ramallah_interview1" preload="auto" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2F00040.mp4?v=1561134542402"></video>
+        <video id="ramallah_interview2" preload="auto" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2F00125_Trim.mp4?v=1561135763147"></video>
+        <video id="ramallah_chant1" preload="auto" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2FVID_20190109_132642.mp4?v=1561404719315"></video>
+        <video id="ramallah_chant2" preload="auto" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fmega-phone-crowd.mp4?v=1561404731434"></video>
+        <video id="jerusalem_gate_vid" preload="auto" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Forigin_1.mp4?v=1561138342770"></video>
+        <video id="jerusalem_roof_vid" preload="auto" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Forigin_0%20(1).mp4?v=1561138975151"></video>
+        <video id="qalqilya_vid1" preload="auto" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fchildren-play-wall-filth.mp4?v=1561392888941"></video>
+        <video id="qalqilya_vid2" preload="auto" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Flining-up-for-pic.mp4?v=1561400758812"></video>
+        <video id="kafr-qaddam_vid" preload="auto" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2F3d(2).mp4?v=1559745270352"></video>
       </a-assets>
 
       
@@ -197,8 +214,9 @@
             <a-entity mixin="buttonMain" text="value: Hebron" proxy-event="as: menuHebron" position="-.3 0.5 0"></a-entity>
             <a-entity mixin="buttonMain" text="value: Qalqilya" proxy-event="as: menuQalqilya" position="-1.5 0 0"></a-entity>
             <a-entity mixin="buttonMain" text="value: Qalandia" proxy-event="as: menuQalandia" position="-0.15 1.4 0"></a-entity>
-            <a-entity mixin="buttonMain" text="value: Tel Aviv" proxy-event="as: menuTelaviv" position="-0.9 1.9 0"></a-entity>
+            <a-entity mixin="buttonMain" text="value: Jaffa" proxy-event="as: menuTelaviv" position="-0.9 1.9 0"></a-entity>
             <a-entity mixin="buttonMain" text="value: Kafr Qaddam" proxy-event="as: menuKafr" position="-0.2 2.9 0"></a-entity>
+            <a-entity mixin="buttonMain" text="value: Birzeit" proxy-event="as: menuBirzeit" position="0 1.65 0"></a-entity>
           </a-entity>
         </a-entity>
       </a-entity>
@@ -211,7 +229,20 @@
           <a-entity class="buttons">
               <a-entity mixin="pageButton" position="-0.88 0.55 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpano%20-%20Copyss4535.jpg?v=1560285810621" bind-toggle__raycastable="menu === 'bethlehem'" environment-changer></a-entity>
               <a-entity mixin="pageButton" position="1 -0.47 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpano%20-%20Copywhaz.jpg?v=1560285813150" bind-toggle__raycastable="menu === 'bethlehem'" environment-changer></a-entity>
-              <a-entity mixin="pageButton" position="0.83 0.40 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpano%20(3).jpg?v=1560285818058" bind-toggle__raycastable="menu === 'bethlehem'" environment-changer></a-entity>
+              <a-entity mixin="pageButton" position="0.83 0.40 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpano%20(1)%20(3).jpg?v=1561389170061" bind-toggle__raycastable="menu === 'bethlehem'" environment-changer></a-entity>
+             
+              <a-entity mixin="pageButton" position="-1.07 0 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpano%20-%20Copycar.jpg?v=1561389173943" bind-toggle__raycastable="menu === 'bethlehem'" environment-changer></a-entity>
+              <a-entity mixin="pageButton" position="-0.5 1.18 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpano%20(4)%20(1).jpg?v=1561389176003" bind-toggle__raycastable="menu === 'bethlehem'" environment-changer></a-entity>
+              <a-entity mixin="pageButton" position="-0.35 -0.59 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpano%20(7).jpg?v=1561389176338" bind-toggle__raycastable="menu === 'bethlehem'" environment-changer></a-entity>
+              <a-entity mixin="pageButton" position="1.11 -0.02 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpano%202%20(1).jpg?v=1561389181551" bind-toggle__raycastable="menu === 'bethlehem'" environment-changer></a-entity>
+              <a-entity mixin="pageButton" position="-0.2 0.6 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpano%20(2)%20(2).jpg?v=1561389204168" bind-toggle__raycastable="menu === 'bethlehem'" environment-changer></a-entity>
+              <a-entity mixin="pageButton" position="0.510 1.08 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpano33.jpg?v=1561389223829" bind-toggle__raycastable="menu === 'bethlehem'" environment-changer></a-entity>
+              <a-entity mixin="pageButton" position="-0.87 -1.06 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpanowithtree.jpg?v=1561389238973" bind-toggle__raycastable="menu === 'bethlehem'" environment-changer></a-entity>
+              <a-entity mixin="pageButton" position="0.45 -1.24 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpano%20(6)%20(1).jpg?v=1561389240195" bind-toggle__raycastable="menu === 'bethlehem'" environment-changer></a-entity>
+              <a-entity mixin="pageButton" position="0.55 -0.97 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpano2.jpg?v=1561389240508" bind-toggle__raycastable="menu === 'bethlehem'" environment-changer></a-entity>
+              <a-entity mixin="pageButton" position="-0.5 -0.17 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpano%20(5)%20(1).jpg?v=1561389240663" bind-toggle__raycastable="menu === 'bethlehem'" environment-changer></a-entity>
+              <a-entity mixin="pageButton" position="1.22 1.15 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fwall--pano.jpg?v=1561389245428" bind-toggle__raycastable="menu === 'bethlehem'" environment-changer></a-entity>
+             
               <a-entity mixin="pageButton" position="0.04 -0.22 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpano3.jpg?v=1560534603883" bind-toggle__raycastable="menu === 'bethlehem'" environment-changer="setBackground: bethlehem">
                 <a-entity mixin="audioButton" position="0 -1 8" sound="src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fwall-convo1.mp3?v=1560787019983" audiohandler bind-toggle__raycastable="background === 'bethlehem'" bind__visible="background === 'bethlehem'"></a-entity>
                 <a-entity mixin="audioButton" position="1 -1 8" sound="src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fwall-convo2.mp3?v=1560787020093" audiohandler bind-toggle__raycastable="background === 'bethlehem'" bind__visible="background === 'bethlehem'"></a-entity>
@@ -225,11 +256,14 @@
         <a-entity id="ramallahMenu" mixin="minimap" material="shader: flat; src: #ramallah-menu" bind__visible="menu === 'ramallah' && background !== 'minimap'">
           <a-entity class="buttons">
               <a-entity mixin="pageButton" position="-0.47 0.55 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpano%20(1)%20(2).jpg?v=1560354411994" bind-toggle__raycastable="menu === 'ramallah'"></a-entity>
-              <a-entity mixin="pageButton" position="0.36 0.27 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpano%209.jpg?v=1560354421472" bind-toggle__raycastable="menu === 'ramallah'"></a-entity>
-              <a-entity mixin="pageButton" position="1 1.01 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpano%2013.jpg?v=1560354423549" bind-toggle__raycastable="menu === 'ramallah'" environment-changer="ramallah_pic1"></a-entity>
-              <a-entity mixin="pageButton" position="0.49 0.3 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpano%207.jpg?v=1560354424559" bind-toggle__raycastable="menu === 'ramallah'" environment-changer="setBackground: ramallah">
-                <a-entity mixin="videoPlayer" material="src: #ramallah_vid1" videohandler="src: #ramallah_vid1" position="3.5 0 4.5" rotation="0 -90 0" bind-toggle__raycastable="background === 'ramallah'" bind__visible="background === 'ramallah'"></a-entity>
-                <a-entity mixin="videoPlayer" material="src: #ramallah_vid2" videohandler="src: #ramallah_vid2" position="3.5 0 7.5" rotation="0 -90 0" bind-toggle__raycastable="background === 'ramallah'" bind__visible="background === 'ramallah'"></a-entity>
+              <a-entity mixin="pageButton" position="0.36 0.27 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpano%209.jpg?v=1560354421472" bind-toggle__raycastable="menu === 'ramallah'" environment-changer="setBackground: chants">
+                <a-entity mixin="videoPlayer" material="src: #ramallah_chant1" videohandler="src: #ramallah_chant1" position="3.5 0 4.5" rotation="0 -90 0" bind-toggle__raycastable="background === 'chants'" bind__visible="background === 'chants'"></a-entity>
+                <a-entity mixin="videoPlayer" material="src: #ramallah_chant2" videohandler="src: #ramallah_chant2" position="3.5 0 7.5" rotation="0 -90 0" bind-toggle__raycastable="background === 'chants'" bind__visible="background === 'chants'"></a-entity>
+              </a-entity>
+              <a-entity mixin="pageButton" position="1 1.01 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpano%2013.jpg?v=1560354423549" bind-toggle__raycastable="menu === 'ramallah'" ></a-entity>
+              <a-entity mixin="pageButton" position="0.49 0.3 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpano%207.jpg?v=1560354424559" bind-toggle__raycastable="menu === 'ramallah'" environment-changer="setBackground: interviews">
+                <a-entity mixin="videoPlayer" material="src: #ramallah_interview1" videohandler="src: #ramallah_interview1" position="3.5 0 4.5" rotation="0 -90 0" bind-toggle__raycastable="background === 'interviews'" bind__visible="background === 'interviews'"></a-entity>
+                <a-entity mixin="videoPlayer" material="src: #ramallah_interview2" videohandler="src: #ramallah_interview2" position="3.5 0 7.5" rotation="0 -90 0" bind-toggle__raycastable="background === 'interviews'" bind__visible="background === 'interviews'"></a-entity>
               </a-entity>
               <a-entity mixin="pageButton" position="0.16 -0.14 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpano%2014.jpg?v=1560354425007" bind-toggle__raycastable="menu === 'ramallah'"></a-entity>
               <a-entity mixin="pageButton" position="1 0 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpanoslowmarketgreyday.jpg?v=1560354434303" bind-toggle__raycastable="menu === 'ramallah'"></a-entity>
@@ -248,7 +282,8 @@
         <a-entity id="jerichoMenu" mixin="minimap" material="shader: flat; src: #jericho-menu" bind__visible="menu === 'jericho' && background !== 'minimap'">
           <a-entity class="buttons">
               <a-entity mixin="pageButton" position="0 -0.26 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpano_left.jpg?v=1560455844435" bind-toggle__raycastable="menu === 'jericho'" environment-changer="setBackground: jericho">
-                <a-entity mixin="videoPlayer" material="src: #jericho_vid" videohandler="src: #jericho_vid" position="0 0 8" rotation="180 0 0" bind-toggle__raycastable="background === 'jericho'" bind__visible="background === 'jericho'"></a-entity></a-entity>
+                <a-entity mixin="pinText" text="value: Jericho"></a-entity>
+                <a-entity mixin="videoPlayer" material="src: #jericho_vid" videohandler="src: #jericho_vid" position="-1.14 2.313 3.88" rotation="150 -150 180" bind-toggle__raycastable="background === 'jericho'" bind__visible="background === 'jericho'"></a-entity></a-entity>
           </a-entity>
         </a-entity>
       
@@ -263,14 +298,17 @@
               <a-entity mixin="pageButton" position="-0.53 1.15 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpano_leftblurrnightmarket.jpg?v=1560347470415" bind-toggle__raycastable="menu === 'hebron'"></a-entity>
               <a-entity mixin="pageButton" position="1.14 -0.67 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpano%20cmosqqopy%20(1).jpg?v=1560347473563" bind-toggle__raycastable="menu === 'hebron'"></a-entity>
               <a-entity mixin="pageButton" position="0.63 0.818 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Foldcitypano_right.jpg?v=1560347475669" bind-toggle__raycastable="menu === 'hebron'" environment-changer="setBackground: hebron">
-                  <a-entity mixin="audioButton"  position="1.5 0 3.5" rotation="-90 -57 0" sound="src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fhebron_audio.mp3?v=1560879828934" audiohandler bind-toggle__raycastable="background === 'hebron'" bind__visible="background === 'hebron'"></a-entity></a-entity> 
+                  <a-entity mixin="audioButton" position="1.5 0 3.5" rotation="-90 -57 0" sound="src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fhebron_audio.mp3?v=1560879828934" audiohandler bind-toggle__raycastable="background === 'hebron'" bind__visible="background === 'hebron'"></a-entity></a-entity> 
               <a-entity mixin="pageButton" position="-0.284 0.158 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpano_left%20copy456.jpg?v=1560347479887" bind-toggle__raycastable="menu === 'hebron'"></a-entity>
           </a-entity>
         </a-entity>
       
         <a-entity id="qalqilyaMenu" mixin="minimap" material="shader: flat; src: #qalqilya-menu" bind__visible="menu === 'qalqilya' && background !== 'minimap'">
           <a-entity class="buttons">
-            <a-entity mixin="pageButton" position="-0.56 0.47 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fqalqilya360.jpeg?v=1559224586978" bind-toggle__raycastable="menu === 'qalqilya'"></a-entity>
+            <a-entity mixin="pageButton" position="-0.56 0.47 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fwhite.jpg?v=1561477684719" bind-toggle__raycastable="menu === 'qalqilya'" environment-changer="setBackground: qalqilya">
+                <a-entity mixin="videoPlayer" material="src: #qalqilya_vid1" videohandler="src: #qalqilya_vid1" position="0.84 0 9.03" rotation="0 -150 0" bind-toggle__raycastable="background === 'qalqilya'" bind__visible="background === 'qalqilya'"></a-entity>
+                <a-entity mixin="videoPlayer" material="src: #qalqilya_vid2" videohandler="src: #qalqilya_vid2" position="3.5 0 7.5" rotation="0 -150 0" bind-toggle__raycastable="background === 'qalqilya'" bind__visible="background === 'qalqilya'"></a-entity>
+            </a-entity>
           </a-entity>
         </a-entity>
       
@@ -313,6 +351,15 @@
               </a-entity>
          </a-entity>
         </a-entity>
+      
+        <a-entity id="birzeitMenu" mixin="minimap" material="shader: flat; src: #birzeit-menu" bind__visible="menu === 'birzeit' && background !== 'minimap'">
+          <a-entity class="buttons">
+              <a-entity mixin="pageButton" position="0.52 -0.63 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fmachinespano.jpg?v=1561396135262" bind-toggle__raycastable="menu === 'birzeit'"></a-entity>
+              <a-entity mixin="pageButton" position="1.17 -0.25 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fbmuzpano%20(1).jpg?v=1561396148789" bind-toggle__raycastable="menu === 'birzeit'"></a-entity>
+              <a-entity mixin="pageButton" position="-0.52 -0.55 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpano-mozq.jpg?v=1561396149011" bind-toggle__raycastable="menu === 'birzeit'"></a-entity>
+              <a-entity mixin="pageButton" position="0 0.806 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fbirz%20museum%20-pano%20copy%20(1).jpg?v=1561396150911" bind-toggle__raycastable="menu === 'birzeit'"></a-entity>
+          </a-entity>
+        </a-entity>
 
       
       <a-entity id="model" bind__visible="menu === 'main'" bind__raycastable="menu === 'main'"
@@ -321,7 +368,7 @@
             animation="property: rotation; dur: 60000; from: 0 0 0; to: 0 360 0; loop: true; easing: linear"
             animation__mouseenter="property: scale; to: 0.3 0.3 0.3; dur: 100; startEvents: mouseenter"
             animation__mouseleave="property: scale; to: 0.2 0.2 0.2; dur: 100; startEvents: mouseleave"
-            event-set__1="_event: click; _target: #image-360; _delay: 300; material.src: #quito"
+            event-set__click=" _target: #image-360; _delay: 300; material.src: #quito"
             environment-changer><a-entity light="type: point"></a-entity>
       </a-entity>  
         
