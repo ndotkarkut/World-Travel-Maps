@@ -33,7 +33,7 @@
         <img id="jerusalem-menu" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fjeruselam.png?1559591870240">
         <img id="bethlehem-menu" src="assets/bethlehem-thumb.png">
         <img id="ramallah-menu" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2FRamallah.png?1559591870567">
-        <img id="jericho-menu" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2FJericho.png?1559591871073">
+        <img id="jericho-menu" src="assets/jericho/Jericho-thumb.png">
         <img id="dsm-menu" src="assets/deadsea/dsm-thumb.png">
         <img id="hebron-menu" src="assets/hebron/hebron-thumb.png">
         <img id="qalqilya-menu" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fqalqiliya.png?1559591868847">
@@ -213,7 +213,7 @@
 
       <a-entity id="jerichoMenu" mixin="minimap" material="shader: flat; src: #jericho-menu" bind__visible="menu === 'jericho' && background !== 'minimap'">
         <a-entity class="buttons">
-            <a-entity mixin="pageButton" text="value: Alley Dog" position="0 -0.26 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpano_left.jpg?v=1560455844435" bind-toggle__raycastable="menu === 'jericho'" environment-changer="setBackground: jericho">
+            <a-entity mixin="pageButton" text="value: Alley Dog" position="0 -0.26 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/jericho/jeri-alley-dog360.png" bind-toggle__raycastable="menu === 'jericho'" environment-changer="setBackground: jericho">
               <a-entity mixin="videoFrame" position="-1.14 2.313 3.88" rotation="150 -150 180" bind__visible="background === 'jericho'"><a-entity mixin="videoPlayer" material="src: #jericho_vid" videohandler="src: #jericho_vid" position="0 0 0.01" rotation="0 0 0" bind-toggle__raycastable="background === 'jericho'"></a-entity></a-entity>
             </a-entity>
         </a-entity>
