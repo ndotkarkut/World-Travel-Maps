@@ -39,7 +39,7 @@
         <img id="qalqilya-menu" src="assets/qalqilya/qalqilya-thumb.png">
         <img id="qalandia-menu" src="assets/qalandia/qalandia-thumb.png">
         <img id="kafr-qaddam-menu" src="assets/kafr-qaddam/kafr-qaddam-thumb.png">
-        <img id="tel-aviv-menu" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Ftelaviv.png?1559591870508">
+        <img id="tel-aviv-menu" src="assets/telaviv/telaviv-thumb.png">
         <img id="birzeit-menu" src="assets/birzeit/birzeit-thumb.png">
         <!-- Assets .obj and .mtl used to materialize the Quito mountain model-->
         <a-asset-item id="mount-obj" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Flowpolymountains-1.obj?1559326651212"></a-asset-item>
@@ -258,7 +258,7 @@
 
       <a-entity id="telavivMenu" mixin="minimap" material="shader: flat; src: #tel-aviv-menu" bind__visible="menu === 'telaviv' && background !== 'minimap'">
         <a-entity class="buttons">
-            <a-entity mixin="pageButton" text="value: Night Lights" position="0.33 0.16 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Ftelaviv360.jpeg?v=1559224585616" bind-toggle__raycastable="menu === 'telaviv'"></a-entity>
+            <a-entity mixin="pageButton" text="value: Night Lights" position="0.33 0.16 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/telaviv/telaviv360.jpeg" bind-toggle__raycastable="menu === 'telaviv'"></a-entity>
         </a-entity>
       </a-entity>
 
