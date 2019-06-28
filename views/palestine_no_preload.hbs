@@ -28,13 +28,13 @@
     <a-scene kafr-video spectator render-order="menuBackground, menuItem, button">
       <a-assets>
         <!-- Images -->
-        <img id="mapIsrael" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fkisspng-israel-map-clip-art-5ae46d5a1d12c6.1217121415249196421191.png">
+        <img id="mapIsrael" src="assets/misc/israelMap.png">
         <img id="pin_src" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2FLocation-5-1.png?v=1561572418750">
         <img id="jerusalem-menu" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fjeruselam.png?1559591870240">
         <img id="bethlehem-menu" src="assets/bethlehem-thumb.png">
         <img id="ramallah-menu" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2FRamallah.png?1559591870567">
         <img id="jericho-menu" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2FJericho.png?1559591871073">
-        <img id="dsm-menu" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fdeadseamountains.png?1559591868735">
+        <img id="dsm-menu" src="assets/deadsea/dsm-thumb.png">
         <img id="hebron-menu" src="assets/hebron/hebron-thumb.png">
         <img id="qalqilya-menu" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fqalqiliya.png?1559591868847">
         <img id="qalandia-menu" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fqalandia.png?1559591870612">
@@ -87,7 +87,7 @@
         
         <a-mixin id="minimap" geometry="primitive: plane; height: 3; width: 3" position="2.5 1 -5" rotation="0 -33 0" ></a-mixin>
       
-        <a-mixin id="audioButton" geometry="primitive: cylinder; radius: 0.25; height: 0.25" rotation="-90 0 0" material="src: assets/AudioButton.png; shader: flat"
+        <a-mixin id="audioButton" geometry="primitive: cylinder; radius: 0.25; height: 0.25" rotation="-90 0 0" material="src: assets/misc/AudioButton.png; shader: flat"
                  animation__mouseenter="property: geometry.height; from: 0.25; to: 0.125; dur: 100; startEvents: mouseenter"
                  animation__mouseleave="property: geometry.height; from: 0.125; to: 0.25; dur: 100; startEvents: mouseleave"></a-mixin>
         
