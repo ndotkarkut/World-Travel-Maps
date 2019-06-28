@@ -37,7 +37,7 @@
         <img id="dsm-menu" src="assets/deadsea/dsm-thumb.png">
         <img id="hebron-menu" src="assets/hebron/hebron-thumb.png">
         <img id="qalqilya-menu" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fqalqiliya.png?1559591868847">
-        <img id="qalandia-menu" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fqalandia.png?1559591870612">
+        <img id="qalandia-menu" src="assets/qalandia/qalandia-thumb.png">
         <img id="kafr-qaddam-menu" src="assets/kafr-qaddam/kafr-qaddam-thumb.png">
         <img id="tel-aviv-menu" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Ftelaviv.png?1559591870508">
         <img id="birzeit-menu" src="assets/birzeit/birzeit-thumb.png">
@@ -246,11 +246,11 @@
 
       <a-entity id="qalandiaMenu" mixin="minimap" material="shader: flat; src: #qalandia-menu" bind__visible="menu === 'qalandia' && background !== 'minimap'">
         <a-entity class="buttons">
-            <a-entity mixin="pageButton" text="value: Night Checkpoint" position="-0.07 0.127 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpano%20-%20Copy12.jpg?v=1560348609504" bind-toggle__raycastable="menu === 'qalandia'" environment-changer="setBackground: qalandiaCheckpoint">
+            <a-entity mixin="pageButton" text="value: Night Checkpoint" position="-0.07 0.127 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/qalandia/qala-night-checkpoint360.jpg" bind-toggle__raycastable="menu === 'qalandia'" environment-changer="setBackground: qalandiaCheckpoint">
               <a-entity mixin="videoFrame" position="3.5 0 6" rotation="0 -90 90" bind__visible="background === 'qalandiaCheckpoint'"><a-entity mixin="videoPlayer" material="src: #qalandia_checkpoint_vid" videohandler="src: #qalandia_checkpoint_vid" position="0 0 0.01" rotation="0 0 0" bind-toggle__raycastable="background === 'qalandiaCheckpoint'"></a-entity></a-entity>
             </a-entity>   
-            <a-entity mixin="pageButton" text="value: Stop" position="0.67 0 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpano%20-%20Copyss.jpg?v=1560348613488" bind-toggle__raycastable="menu === 'qalandia'"></a-entity>
-            <a-entity mixin="pageButton" text="value: Traffic" position="0.19 0.26 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpano%20(1)%20(1).jpg?v=1560348615315" bind-toggle__raycastable="menu === 'qalandia'" environment-changer="setBackground: qalandiaTraffic">
+            <a-entity mixin="pageButton" text="value: Stop" position="0.67 0 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/qalandia/qala-stop360.jpg" bind-toggle__raycastable="menu === 'qalandia'"></a-entity>
+            <a-entity mixin="pageButton" text="value: Traffic" position="0.19 0.26 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/qalandia/qala-traffic360.jpg" bind-toggle__raycastable="menu === 'qalandia'" environment-changer="setBackground: qalandiaTraffic">
               <a-entity mixin="videoFrame" position="3.5 0 6" rotation="0 -90 90" bind__visible="background === 'qalandiaTraffic'"><a-entity mixin="videoPlayer" material="src: #qalandia_traffic_vid" videohandler="src: #qalandia_traffic_vid" position="0 0 0.01" rotation="0 0 0" bind-toggle__raycastable="background === 'qalandiaTraffic'"></a-entity></a-entity>
             </a-entity>
         </a-entity>
@@ -286,7 +286,7 @@
 
       <a-entity id="birzeitMenu" mixin="minimap" material="shader: flat; src: #birzeit-menu" bind__visible="menu === 'birzeit' && background !== 'minimap'">
         <a-entity class="buttons">
-            <a-entity mixin="pageButton" text="value: Sunset" position="0.52 -0.63 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fmachinespano.jpg?v=1561396135262" bind-toggle__raycastable="menu === 'birzeit'"></a-entity>
+            <a-entity mixin="pageButton" text="value: Sunset" position="0.52 -0.63 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/birzeit/birz-sunset360.jpg" bind-toggle__raycastable="menu === 'birzeit'"></a-entity>
             <a-entity mixin="pageButton" text="value: Museum Sun" position="1.17 -0.25 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/birzeit/birz-museum-sun360.jpg" bind-toggle__raycastable="menu === 'birzeit'"></a-entity>
             <a-entity mixin="pageButton" text="value: Mosque" position="-0.52 -0.55 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/birzeit/birz-mosque360.jpg" bind-toggle__raycastable="menu === 'birzeit'"></a-entity>
             <a-entity mixin="pageButton" text="value: Museum Sunset" position="0 0.806 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/birzeit/birz-museum-sunset360.jpg" bind-toggle__raycastable="menu === 'birzeit'"></a-entity>
