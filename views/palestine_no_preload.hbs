@@ -35,12 +35,12 @@
         <img id="ramallah-menu" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2FRamallah.png?1559591870567">
         <img id="jericho-menu" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2FJericho.png?1559591871073">
         <img id="dsm-menu" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fdeadseamountains.png?1559591868735">
-        <img id="hebron-menu" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fhebron.png?1559591869493">
+        <img id="hebron-menu" src="assets/hebron/hebron-thumb.png">
         <img id="qalqilya-menu" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fqalqiliya.png?1559591868847">
         <img id="qalandia-menu" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fqalandia.png?1559591870612">
         <img id="kafr-qaddam-menu" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fkfar%20Qaddum.png?1559591869053">
         <img id="tel-aviv-menu" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Ftelaviv.png?1559591870508">
-        <img id="birzeit-menu" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2FScreenshot%20(2).png?v=1561395752380">
+        <img id="birzeit-menu" src="assets/birzeit/birzeit-thumb.png">
         <!-- Assets .obj and .mtl used to materialize the Quito mountain model-->
         <a-asset-item id="mount-obj" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Flowpolymountains-1.obj?1559326651212"></a-asset-item>
         <a-asset-item id="mount-mtl" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Flowpolymountains-1.mtl?1559326651149"></a-asset-item> 
@@ -227,11 +227,11 @@
 
       <a-entity id="hebronMenu" mixin="minimap" material="shader: flat; src: #hebron-menu" bind__visible="menu === 'hebron' && background !== 'minimap'">
         <a-entity class="buttons">
-            <a-entity mixin="pageButton" text="value: Blurry Street" position="-0.53 1.15 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpano_leftblurrnightmarket.jpg?v=1560347470415" bind-toggle__raycastable="menu === 'hebron'"></a-entity>
-            <a-entity mixin="pageButton" text="value: Inside Mosque" position="1.14 -0.67 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpano%20cmosqqopy%20(1).jpg?v=1560347473563" bind-toggle__raycastable="menu === 'hebron'"></a-entity>
-            <a-entity mixin="pageButton" text="value: Historic Site" position="0.63 0.818 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Foldcitypano_right.jpg?v=1560347475669" bind-toggle__raycastable="menu === 'hebron'" environment-changer="setBackground: hebron">
-                <a-entity mixin="audioButton" position="1.5 0 3.5" rotation="-90 -57 0" sound="src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fhebron_audio.mp3?v=1560879828934" audiohandler bind-toggle__raycastable="background === 'hebron'" bind__visible="background === 'hebron'"></a-entity></a-entity> 
-            <a-entity mixin="pageButton" text="value: Glass Shop" position="-0.284 0.158 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpano_left%20copy456.jpg?v=1560347479887" bind-toggle__raycastable="menu === 'hebron'"></a-entity>
+            <a-entity mixin="pageButton" text="value: Blurry Street" position="-0.53 1.15 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/hebron/hebr-blurry-street360.jpg" bind-toggle__raycastable="menu === 'hebron'"></a-entity>
+            <a-entity mixin="pageButton" text="value: Inside Mosque" position="1.14 -0.67 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/hebron/hebr-inside-mosque360.jpg" bind-toggle__raycastable="menu === 'hebron'"></a-entity>
+            <a-entity mixin="pageButton" text="value: Historic Site" position="0.63 0.818 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/hebron/hebr-historic-site360.jpg" bind-toggle__raycastable="menu === 'hebron'" environment-changer="setBackground: hebron">
+                <a-entity mixin="audioButton" position="1.5 0 3.5" rotation="-90 -57 0" sound="src: assets/hebron/hebr-historic-site-audio.mp3" audiohandler bind-toggle__raycastable="background === 'hebron'" bind__visible="background === 'hebron'"></a-entity></a-entity> 
+            <a-entity mixin="pageButton" text="value: Glass Shop" position="-0.284 0.158 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/hebron/hebr-glass-shop360" bind-toggle__raycastable="menu === 'hebron'"></a-entity>
         </a-entity>
       </a-entity>
 
@@ -287,9 +287,9 @@
       <a-entity id="birzeitMenu" mixin="minimap" material="shader: flat; src: #birzeit-menu" bind__visible="menu === 'birzeit' && background !== 'minimap'">
         <a-entity class="buttons">
             <a-entity mixin="pageButton" text="value: Sunset" position="0.52 -0.63 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fmachinespano.jpg?v=1561396135262" bind-toggle__raycastable="menu === 'birzeit'"></a-entity>
-            <a-entity mixin="pageButton" text="value: Museum Sun" position="1.17 -0.25 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fbmuzpano%20(1).jpg?v=1561396148789" bind-toggle__raycastable="menu === 'birzeit'"></a-entity>
-            <a-entity mixin="pageButton" text="value: Mosque" position="-0.52 -0.55 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpano-mozq.jpg?v=1561396149011" bind-toggle__raycastable="menu === 'birzeit'"></a-entity>
-            <a-entity mixin="pageButton" text="value: Museum Sunset" position="0 0.806 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fbirz%20museum%20-pano%20copy%20(1).jpg?v=1561396150911" bind-toggle__raycastable="menu === 'birzeit'"></a-entity>
+            <a-entity mixin="pageButton" text="value: Museum Sun" position="1.17 -0.25 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/birzeit/birz-museum-sun360.jpg" bind-toggle__raycastable="menu === 'birzeit'"></a-entity>
+            <a-entity mixin="pageButton" text="value: Mosque" position="-0.52 -0.55 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/birzeit/birz-mosque360.jpg" bind-toggle__raycastable="menu === 'birzeit'"></a-entity>
+            <a-entity mixin="pageButton" text="value: Museum Sunset" position="0 0.806 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/birzeit/birz-museum-sunset360.jpg" bind-toggle__raycastable="menu === 'birzeit'"></a-entity>
         </a-entity>
       </a-entity>
 
