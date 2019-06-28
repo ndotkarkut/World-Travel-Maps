@@ -1,3 +1,4 @@
+
 // aframe-state-component definition.
 AFRAME.registerState({
   // Initial state of our application. We have the current environment and the active menu.
@@ -56,5 +57,8 @@ AFRAME.registerState({
     menuJerusalem: function (state) {
       state.menu = 'jerusalem';
     },
+    menuBirzeit: function (state) {
+      state.menu = 'birzeit';
+    }
   }
 })
