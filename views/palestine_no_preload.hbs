@@ -53,14 +53,10 @@
         <!-- Quito -->
         <img id="quito" src="assets/quito/quito360.jpg">
         
-        <!-- Hebron -->
-        <audio id="hebron-audio" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fhebron_audio.mp3?v=1560879828934"></audio>
         
         <!-- Base mixins-->
         <a-mixin id="font" text="font: roboto"></a-mixin>
         <a-mixin id="textbox" geometry="primitive: plane; height: 0.2; width: 0.5" material="color: black"></a-mixin>
-        
-        
         
         <!-- Button mixins-->
         <a-mixin id="buttonBackground" mixin="textbox" ></a-mixin>
@@ -91,7 +87,7 @@
                  animation__mouseenter="property: geometry.height; from: 0.25; to: 0.125; dur: 100; startEvents: mouseenter"
                  animation__mouseleave="property: geometry.height; from: 0.125; to: 0.25; dur: 100; startEvents: mouseleave"></a-mixin>
         
-        <a-mixin id="videoFrame" geometry="primitive: plane; height: 2.15; width: 3.2" material="shader: flat; src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2F18.png?v=1561643637304"></a-mixin>
+        <a-mixin id="videoFrame" geometry="primitive: plane; height: 2.15; width: 3.2" material="shader: flat; src: assets/misc/videoFrame.png"></a-mixin>
         <a-mixin id="videoPlayer" geometry="primitive: plane; height: 2; width: 3" material="shader: flat" rotation="180 0 0"></a-mixin>
         
         <video id="qalandia_checkpoint_vid" preload="auto" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Forigin_0.mp4?v=1561130812264"></video>
@@ -169,7 +165,7 @@
             <a-entity mixin="pageButton" text="value: Mountain Range" position="-0.35 -0.59 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/beth-mountainrange360.jpg" bind-toggle__raycastable="menu === 'bethlehem'" environment-changer></a-entity>
             <a-entity mixin="pageButton" text="value: Night Streets" position="1.11 -0.02 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/beth-night-streets360.jpg" bind-toggle__raycastable="menu === 'bethlehem'" environment-changer></a-entity>
             <a-entity mixin="pageButton" text="value: Castle Walls" position="-0.2 0.6 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/beth-castle-walls360.jpg" bind-toggle__raycastable="menu === 'bethlehem'" environment-changer></a-entity>
-            <a-entity mixin="pageButton" text="value: Jesus' Birthsite" position="0.510 1.08 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpano33.jpg?v=1561389223829" bind-toggle__raycastable="menu === 'bethlehem'" environment-changer></a-entity>
+            <a-entity mixin="pageButton" text="value: Fields" position="0.510 1.08 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/bethlehem/beth-fields360.jpg" bind-toggle__raycastable="menu === 'bethlehem'" environment-changer></a-entity>
             <a-entity mixin="pageButton" text="value: Nature" position="-0.87 -1.06 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/beth-nature360.jpg" bind-toggle__raycastable="menu === 'bethlehem'" environment-changer></a-entity>
             <a-entity mixin="pageButton" text="value: Sunset Plains" position="0.45 -1.24 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/beth-sunset-plains360.jpg" bind-toggle__raycastable="menu === 'bethlehem'" environment-changer></a-entity>
             <a-entity mixin="pageButton" text="value: Plains" position="0.55 -0.77 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/beth-2plains360.jpg" bind-toggle__raycastable="menu === 'bethlehem'" environment-changer></a-entity>
