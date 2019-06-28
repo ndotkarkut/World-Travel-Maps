@@ -105,7 +105,7 @@
         <video id="jerusalem_gate_vid" preload="auto" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Forigin_1.mp4?v=1561138342770"></video>
         <video id="jerusalem_roof_vid" preload="auto" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Forigin_0%20(1).mp4?v=1561138975151"></video>
         <video id="qalqilya_vid1" preload="auto" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fchildren-play-wall-filth.mp4?v=1561392888941"></video>
-        <video id="qalqilya_vid2" preload="auto" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Flining-up-for-pic.mp4?v=1561400758812"></video>
+        <video id="qalqilya_vid2" preload="auto" src="assets/qalqilya/qalq-kids-playing-2video.mp4"></video>
         <video id="kafr-qaddam_vid" preload="auto" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2F3d(2).mp4?v=1559745270352"></video>
       </a-assets>
 
@@ -237,7 +237,7 @@
 
       <a-entity id="qalqilyaMenu" mixin="minimap" material="shader: flat; src: #qalqilya-menu" bind__visible="menu === 'qalqilya' && background !== 'minimap'">
         <a-entity class="buttons">
-          <a-entity mixin="pageButton" text="value: Kids Playing" position="-0.56 0.47 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fwhite.jpg?v=1561477684719" bind-toggle__raycastable="menu === 'qalqilya'" environment-changer="setBackground: qalqilya">
+          <a-entity mixin="pageButton" text="value: Kids Playing" position="-0.56 0.47 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/qalqilya/white.jpg" bind-toggle__raycastable="menu === 'qalqilya'" environment-changer="setBackground: qalqilya">
               <a-entity mixin="videoFrame" position="0.84 0 9.03" rotation="0 -150 0" bind__visible="background === 'qalqilya'"><a-entity mixin="videoPlayer" material="src: #qalqilya_vid1" videohandler="src: #qalqilya_vid1" position="0 0 0.01" rotation="0 0 0" bind-toggle__raycastable="background === 'qalqilya'"></a-entity></a-entity>
               <a-entity mixin="videoFrame" position="3.5 0 7.5" rotation="0 -150 0" bind__visible="background === 'qalqilya'"><a-entity mixin="videoPlayer" material="src: #qalqilya_vid2" videohandler="src: #qalqilya_vid2" position="0 0 0.01" rotation="0 0 0" bind-toggle__raycastable="background === 'qalqilya'"></a-entity></a-entity>
           </a-entity>
