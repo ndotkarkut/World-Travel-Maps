@@ -30,7 +30,7 @@
         <!-- Images -->
         <img id="mapIsrael" src="assets/misc/israelMap.png">
         <img id="pin_src" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2FLocation-5-1.png?v=1561572418750">
-        <img id="jerusalem-menu" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fjeruselam.png?1559591870240">
+        <img id="jerusalem-menu" src="assets/jerusalem/jerusalem-thumb.png">
         <img id="bethlehem-menu" src="assets/bethlehem-thumb.png">
         <img id="ramallah-menu" src="https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2FRamallah.png?1559591870567">
         <img id="jericho-menu" src="assets/jericho/Jericho-thumb.png">
@@ -273,12 +273,12 @@
 
      <a-entity id="jerusalemMenu" mixin="minimap" material="shader: flat; src: #jerusalem-menu" bind__visible="menu === 'jerusalem' && background !== 'minimap'">
         <a-entity class="buttons">
-            <a-entity mixin="pageButton" text="value: Night Rooftop" position="-0.57 0.55 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpano%20-%20Copy.jpg?v=1560347961883" bind-toggle__raycastable="menu === 'jerusalem'" environment-changer="setBackground: jerusalemRoof">
+            <a-entity mixin="pageButton" text="value: Night Rooftop" position="-0.57 0.55 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/jerusalem/jeru-rooftop360.jpg" bind-toggle__raycastable="menu === 'jerusalem'" environment-changer="setBackground: jerusalemRoof">
               <a-entity mixin="videoFrame" position="3.5 0 6" rotation="0 -90 90" bind__visible="background === 'jerusalemRoof'"><a-entity mixin="videoPlayer" material="src: #jerusalem_roof_vid" videohandler="src: #jerusalem_roof_vid" position="0 0 0.01" rotation="0 0 0" bind-toggle__raycastable="background === 'jerusalemRoof'"></a-entity></a-entity>
             </a-entity>
-            <a-entity mixin="pageButton" text="value: Juice Shop" position="0.9 -0.24 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpano%20(1).jpg?v=1560347974633" bind-toggle__raycastable="menu === 'jerusalem'"></a-entity>
-            <a-entity mixin="pageButton" text="value: Jesus' Tomb" position="1 0.55 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2FxQRN15QQ.jpeg?1559064913605" bind-toggle__raycastable="menu === 'jerusalem'"></a-entity>
-            <a-entity mixin="pageButton" text="value: Castle" position="-0.11 -0.920 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2Fpano75.jpg?v=1560347977817" bind-toggle__raycastable="menu === 'jerusalem'" environment-changer="setBackground: jerusalemGate">
+            <a-entity mixin="pageButton" text="value: Juice Shop" position="0.9 -0.24 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/jerusalem/jeru-juice-shop360.jpg" bind-toggle__raycastable="menu === 'jerusalem'"></a-entity>
+            <a-entity mixin="pageButton" text="value: Jesus' Tomb" position="1 0.55 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/jerusalem/jeru-jesus-tomb.jpg" bind-toggle__raycastable="menu === 'jerusalem'"></a-entity>
+            <a-entity mixin="pageButton" text="value: Castle" position="-0.11 -0.920 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/jerusalem/jeru-castle360.jpg" bind-toggle__raycastable="menu === 'jerusalem'" environment-changer="setBackground: jerusalemGate">
               <a-entity mixin="videoFrame" position="3.5 1.92 6" rotation="0 -90 90" bind__visible="background === 'jerusalemGate'"><a-entity mixin="videoPlayer" material="src: #jerusalem_gate_vid" videohandler="src: #jerusalem_gate_vid" position="0 0 0.01" rotation="0 0 0" bind-toggle__raycastable="background === 'jerusalemGate'"></a-entity></a-entity>
             </a-entity>
        </a-entity>
