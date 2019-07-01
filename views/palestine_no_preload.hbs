@@ -64,7 +64,7 @@
           id="buttonHoverEffect"
           animation__mouseenter="property: components.material.material.color; type: color; from: #030303; to: #333; easing: easeOutCubic; dur: 150; startEvents: mouseenter"
           animation__mouseleave="property: components.material.material.color; type: color; from: #333; to: #030303; easing: easeOutCubic; dur: 150; startEvents: mouseleave"></a-mixin>
-        <a-mixin id="buttonText" mixin="font" text="align: center; width: 2.5; zOffset: 0.01; color: white"></a-mixin>
+        <a-mixin id="buttonText" mixin="font" text="align: center; width: 0.6; wrapCount: 10; zOffset: 0.01; color: white"></a-mixin>
         <a-mixin id="button" mixin="buttonBackground buttonHoverEffect buttonText" render-order="button" proxy-event="event: click; to: a-scene; captureBubbles: true"></a-mixin>
         
         <a-mixin id="pinText"  mixin="font" text="width: 0.7; height: 0.01; color: black; opacity: 0; wrapCount: 10; align: center; anchor: center; baseline: bottom" 
@@ -107,7 +107,7 @@
 
       
       <a-sky id="image-360" radius="1000" material="src: starry"
-             animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 2000; startEvents: fade"
+             animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
              animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 1000; startEvents: animationcomplete__fade"
              ></a-sky>
       
