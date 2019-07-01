@@ -31,7 +31,7 @@
         <img id="mapIsrael" src="assets/misc/israelMap.png">
         <img id="pin_src" src="assets/misc/map-pin.png">
         <img id="jerusalem-menu" src="assets/jerusalem/jerusalem-thumb.png">
-        <img id="bethlehem-menu" src="assets/bethlehem-thumb.png">
+        <img id="bethlehem-menu" src="assets/bethlehem/bethlehem-thumb.png">
         <img id="ramallah-menu" src="assets/ramallah/ramallah-thumb.png">
         <img id="jericho-menu" src="assets/jericho/Jericho-thumb.png">
         <img id="dsm-menu" src="assets/deadsea/dsm-thumb.png">
@@ -155,6 +155,8 @@
       <a-entity id="mapShow" mixin="button" text="value: Show Map" scale="1.5 1.5 1.5" rotation="-90 0 0" position="0 0.1 -2.25" bind-toggle__raycastable="background === 'minimap'" bind__visible="background === 'minimap'" environment-changer></a-entity>
 
       <!-- Environment Menu. -->
+      
+<!-- BETHLEHEM -->
       <a-entity id="bethlehemMenu" mixin="minimap" material="shader: flat; src: #bethlehem-menu" bind__visible="menu === 'bethlehem' && background !== 'minimap'">
         <a-entity class="buttons">
             <a-entity mixin="pageButton" text="value: Blurry Sunset" position="-0.88 0.55 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/bethlehem/beth-blurry-sunset360.jpg" bind-toggle__raycastable="menu === 'bethlehem'" environment-changer></a-entity>
@@ -180,7 +182,74 @@
         </a-entity>
       </a-entity>
 
+<!-- BIRZEIT -->
+      <a-entity id="birzeitMenu" mixin="minimap" material="shader: flat; src: #birzeit-menu" bind__visible="menu === 'birzeit' && background !== 'minimap'">
+        <a-entity class="buttons">
+            <a-entity mixin="pageButton" text="value: Sunset" position="0.52 -0.63 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/birzeit/birz-sunset360.jpg" bind-toggle__raycastable="menu === 'birzeit'"></a-entity>
+            <a-entity mixin="pageButton" text="value: Museum Sun" position="1.17 -0.25 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/birzeit/birz-museum-sun360.jpg" bind-toggle__raycastable="menu === 'birzeit'"></a-entity>
+            <a-entity mixin="pageButton" text="value: Mosque" position="-0.52 -0.55 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/birzeit/birz-mosque360.jpg" bind-toggle__raycastable="menu === 'birzeit'"></a-entity>
+            <a-entity mixin="pageButton" text="value: Museum Sunset" position="0 0.806 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/birzeit/birz-museum-sunset360.jpg" bind-toggle__raycastable="menu === 'birzeit'"></a-entity>
+        </a-entity>
+      </a-entity>
+      
+<!-- DEAD SEA MOUNTAINS -->
+      <a-entity id="deadseaMenu" mixin="minimap" material="shader: flat; src: #dsm-menu" bind__visible="menu === 'deadsea' && background !== 'minimap'">
+        <a-entity class="buttons">
+        </a-entity>
+      </a-entity>
+      
+<!-- HEBRON -->
+      <a-entity id="hebronMenu" mixin="minimap" material="shader: flat; src: #hebron-menu" bind__visible="menu === 'hebron' && background !== 'minimap'">
+        <a-entity class="buttons">
+            <a-entity mixin="pageButton" text="value: Blurry Street" position="-0.53 1.15 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/hebron/hebr-blurry-street360.jpg" bind-toggle__raycastable="menu === 'hebron'"></a-entity>
+            <a-entity mixin="pageButton" text="value: Inside Mosque" position="1.14 -0.67 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/hebron/hebr-inside-mosque360.jpg" bind-toggle__raycastable="menu === 'hebron'"></a-entity>
+            <a-entity mixin="pageButton" text="value: Historic Site" position="0.63 0.818 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/hebron/hebr-historic-site360.jpg" bind-toggle__raycastable="menu === 'hebron'" environment-changer="setBackground: hebron">
+                <a-entity mixin="audioButton" position="1.5 0 3.5" rotation="-90 -57 0" sound="src: assets/hebron/hebr-historic-site-audio.mp3" audiohandler bind-toggle__raycastable="background === 'hebron'" bind__visible="background === 'hebron'"></a-entity></a-entity> 
+            <a-entity mixin="pageButton" text="value: Glass Shop" position="-0.284 0.158 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/hebron/hebr-glass-shop360.jpg" bind-toggle__raycastable="menu === 'hebron'"></a-entity>
+        </a-entity>
+      </a-entity>      
 
+<!-- JAFFA -->
+      <a-entity id="telavivMenu" mixin="minimap" material="shader: flat; src: #tel-aviv-menu" bind__visible="menu === 'telaviv' && background !== 'minimap'">
+        <a-entity class="buttons">
+            <a-entity mixin="pageButton" text="value: Night Lights" position="0.33 0.16 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/telaviv/telaviv360.jpg" bind-toggle__raycastable="menu === 'telaviv'"></a-entity>
+        </a-entity>
+      </a-entity>
+
+<!-- JERICHO -->
+      <a-entity id="jerichoMenu" mixin="minimap" material="shader: flat; src: #jericho-menu" bind__visible="menu === 'jericho' && background !== 'minimap'">
+        <a-entity class="buttons">
+            <a-entity mixin="pageButton" text="value: Alley Dog" position="0 -0.26 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/jericho/jeri-alley-dog360.jpg" bind-toggle__raycastable="menu === 'jericho'" environment-changer="setBackground: jericho">
+              <a-entity mixin="videoFrame" position="-1.14 2.313 3.88" rotation="150 -150 180" bind__visible="background === 'jericho'"><a-entity mixin="videoPlayer" material="src: #jericho_vid" videohandler="src: #jericho_vid" position="0 0 0.01" rotation="0 0 0" bind-toggle__raycastable="background === 'jericho'"></a-entity></a-entity>
+            </a-entity>
+        </a-entity>
+      </a-entity>
+
+<!-- JERUSALEM -->
+     <a-entity id="jerusalemMenu" mixin="minimap" material="shader: flat; src: #jerusalem-menu" bind__visible="menu === 'jerusalem' && background !== 'minimap'">
+        <a-entity class="buttons">
+            <a-entity mixin="pageButton" text="value: Night Rooftop" position="-0.57 0.55 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/jerusalem/jeru-rooftop360.jpg" bind-toggle__raycastable="menu === 'jerusalem'" environment-changer="setBackground: jerusalemRoof">
+              <a-entity mixin="videoFrame" position="3.5 0 6" rotation="0 -90 90" bind__visible="background === 'jerusalemRoof'"><a-entity mixin="videoPlayer" material="src: #jerusalem_roof_vid" videohandler="src: #jerusalem_roof_vid" position="0 0 0.01" rotation="0 0 0" bind-toggle__raycastable="background === 'jerusalemRoof'"></a-entity></a-entity>
+            </a-entity>
+            <a-entity mixin="pageButton" text="value: Juice Shop" position="0.9 -0.24 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/jerusalem/jeru-juice-shop360.jpg" bind-toggle__raycastable="menu === 'jerusalem'"></a-entity>
+            <a-entity mixin="pageButton" text="value: Jesus' Tomb" position="1 0.55 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/jerusalem/jeru-jesus-tomb.jpg" bind-toggle__raycastable="menu === 'jerusalem'"></a-entity>
+            <a-entity mixin="pageButton" text="value: Castle" position="-0.11 -0.920 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/jerusalem/jeru-castle360.jpg" bind-toggle__raycastable="menu === 'jerusalem'" environment-changer="setBackground: jerusalemGate">
+              <a-entity mixin="videoFrame" position="3.5 1.92 6" rotation="0 -90 90" bind__visible="background === 'jerusalemGate'"><a-entity mixin="videoPlayer" material="src: #jerusalem_gate_vid" videohandler="src: #jerusalem_gate_vid" position="0 0 0.01" rotation="0 0 0" bind-toggle__raycastable="background === 'jerusalemGate'"></a-entity></a-entity>
+            </a-entity>
+       </a-entity>
+      </a-entity>
+      
+<!-- KAFR QADDAM -->
+     <a-entity id="kafrqaddamMenu" mixin="minimap" material="shader: flat; src: #kafr-qaddam-menu" bind__visible="menu === 'kafrqaddam' && background !== 'minimap'">
+        <a-entity class="buttons">
+          <a-entity mixin="pageButton" text="value: Parade" position="-0.50 0.55 0.02" event-set__click="_target: #image-360; _delay: 300; material.color: black" videohandler="src: #kafr-qaddam_vid" bind-toggle__raycastable="menu === 'kafrqaddam'" environment-changer="setBackground: kafr">
+            <a-videosphere src="#kafr-qaddam_vid" radius="500" bind__visible="background === 'kafr'"></a-videosphere>
+            <a-plane rotation="-90 0 0" height="1000" width="1000" material="color: black" position="0 -2 0"></a-plane>
+          </a-entity>
+          </a-entity>
+      </a-entity>      
+
+<!-- RAMALLAH -->
       <a-entity id="ramallahMenu" mixin="minimap" material="shader: flat; src: #ramallah-menu" bind__visible="menu === 'ramallah' && background !== 'minimap'">
         <a-entity class="buttons">
             <a-entity mixin="pageButton" text="value: Restaurant" position="-0.47 0.55 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/ramallah/rama-restaurant360.jpg" bind-toggle__raycastable="menu === 'ramallah'"></a-entity>
@@ -194,7 +263,7 @@
               <a-entity mixin="videoFrame" position="3.5 0 8" rotation="0 -90 0" bind__visible="background === 'interviews'"><a-entity mixin="videoPlayer" position="0 0 0.01" material="src: #ramallah_interview2" videohandler="src: #ramallah_interview2" bind-toggle__raycastable="background === 'interviews'" rotation="0 0 0"></a-entity></a-entity>
             </a-entity>
             <a-entity mixin="pageButton" text="value: Library" position="0.16 -0.14 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/ramallah/rama-library360.jpg" bind-toggle__raycastable="menu === 'ramallah'"></a-entity>
-            <a-entity mixin="pageButton" text="value: Food Market" position="1 0 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/ramallah/rama-food-market360.jpeg" bind-toggle__raycastable="menu === 'ramallah'"></a-entity>
+            <a-entity mixin="pageButton" text="value: Food Market" position="1 0 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/ramallah/rama-food-market360.jpg" bind-toggle__raycastable="menu === 'ramallah'"></a-entity>
             <a-entity mixin="pageButton" text="value: Fountain" position="0.52 -0.63 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/ramallah/rama-fountain360.jpg" bind-toggle__raycastable="menu === 'ramallah'"></a-entity>
             <a-entity mixin="pageButton" text="value: Officers" position="1.17 -0.25 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/ramallah/rama-officers360.jpg" bind-toggle__raycastable="menu === 'ramallah'"></a-entity>
             <a-entity mixin="pageButton" text="value: Supermarket" position="-0.52 -0.55 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/ramallah/rama-supermarket360.jpg" bind-toggle__raycastable="menu === 'ramallah'"></a-entity>
@@ -207,39 +276,7 @@
         </a-entity>
       </a-entity>
 
-      <a-entity id="jerichoMenu" mixin="minimap" material="shader: flat; src: #jericho-menu" bind__visible="menu === 'jericho' && background !== 'minimap'">
-        <a-entity class="buttons">
-            <a-entity mixin="pageButton" text="value: Alley Dog" position="0 -0.26 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/jericho/jeri-alley-dog360.jpg" bind-toggle__raycastable="menu === 'jericho'" environment-changer="setBackground: jericho">
-              <a-entity mixin="videoFrame" position="-1.14 2.313 3.88" rotation="150 -150 180" bind__visible="background === 'jericho'"><a-entity mixin="videoPlayer" material="src: #jericho_vid" videohandler="src: #jericho_vid" position="0 0 0.01" rotation="0 0 0" bind-toggle__raycastable="background === 'jericho'"></a-entity></a-entity>
-            </a-entity>
-        </a-entity>
-      </a-entity>
-
-      <a-entity id="deadseaMenu" mixin="minimap" material="shader: flat; src: #dsm-menu" bind__visible="menu === 'deadsea' && background !== 'minimap'">
-        <a-entity class="buttons">
-
-        </a-entity>
-      </a-entity>
-
-      <a-entity id="hebronMenu" mixin="minimap" material="shader: flat; src: #hebron-menu" bind__visible="menu === 'hebron' && background !== 'minimap'">
-        <a-entity class="buttons">
-            <a-entity mixin="pageButton" text="value: Blurry Street" position="-0.53 1.15 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/hebron/hebr-blurry-street360.jpg" bind-toggle__raycastable="menu === 'hebron'"></a-entity>
-            <a-entity mixin="pageButton" text="value: Inside Mosque" position="1.14 -0.67 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/hebron/hebr-inside-mosque360.jpg" bind-toggle__raycastable="menu === 'hebron'"></a-entity>
-            <a-entity mixin="pageButton" text="value: Historic Site" position="0.63 0.818 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/hebron/hebr-historic-site360.jpg" bind-toggle__raycastable="menu === 'hebron'" environment-changer="setBackground: hebron">
-                <a-entity mixin="audioButton" position="1.5 0 3.5" rotation="-90 -57 0" sound="src: assets/hebron/hebr-historic-site-audio.mp3" audiohandler bind-toggle__raycastable="background === 'hebron'" bind__visible="background === 'hebron'"></a-entity></a-entity> 
-            <a-entity mixin="pageButton" text="value: Glass Shop" position="-0.284 0.158 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/hebron/hebr-glass-shop360.jpg" bind-toggle__raycastable="menu === 'hebron'"></a-entity>
-        </a-entity>
-      </a-entity>
-
-      <a-entity id="qalqilyaMenu" mixin="minimap" material="shader: flat; src: #qalqilya-menu" bind__visible="menu === 'qalqilya' && background !== 'minimap'">
-        <a-entity class="buttons">
-          <a-entity mixin="pageButton" text="value: Kids Playing" position="-0.56 0.47 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/qalqilya/white.jpg" bind-toggle__raycastable="menu === 'qalqilya'" environment-changer="setBackground: qalqilya">
-              <a-entity mixin="videoFrame" position="0.84 0 9.03" rotation="0 -150 0" bind__visible="background === 'qalqilya'"><a-entity mixin="videoPlayer" material="src: #qalqilya_vid1" videohandler="src: #qalqilya_vid1" position="0 0 0.01" rotation="0 0 0" bind-toggle__raycastable="background === 'qalqilya'"></a-entity></a-entity>
-              <a-entity mixin="videoFrame" position="3.5 0 7.5" rotation="0 -150 0" bind__visible="background === 'qalqilya'"><a-entity mixin="videoPlayer" material="src: #qalqilya_vid2" videohandler="src: #qalqilya_vid2" position="0 0 0.01" rotation="0 0 0" bind-toggle__raycastable="background === 'qalqilya'"></a-entity></a-entity>
-          </a-entity>
-        </a-entity>
-      </a-entity>
-
+<!-- QALANDIA -->
       <a-entity id="qalandiaMenu" mixin="minimap" material="shader: flat; src: #qalandia-menu" bind__visible="menu === 'qalandia' && background !== 'minimap'">
         <a-entity class="buttons">
             <a-entity mixin="pageButton" text="value: Night Checkpoint" position="-0.07 0.127 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/qalandia/qala-night-checkpoint360.jpg" bind-toggle__raycastable="menu === 'qalandia'" environment-changer="setBackground: qalandiaCheckpoint">
@@ -252,44 +289,17 @@
         </a-entity>
       </a-entity>
 
-      <a-entity id="telavivMenu" mixin="minimap" material="shader: flat; src: #tel-aviv-menu" bind__visible="menu === 'telaviv' && background !== 'minimap'">
+<!-- QALQILYA -->
+      <a-entity id="qalqilyaMenu" mixin="minimap" material="shader: flat; src: #qalqilya-menu" bind__visible="menu === 'qalqilya' && background !== 'minimap'">
         <a-entity class="buttons">
-            <a-entity mixin="pageButton" text="value: Night Lights" position="0.33 0.16 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/telaviv/telaviv360.jpeg" bind-toggle__raycastable="menu === 'telaviv'"></a-entity>
+          <a-entity mixin="pageButton" text="value: Kids Playing" position="-0.56 0.47 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/qalqilya/white.jpg" bind-toggle__raycastable="menu === 'qalqilya'" environment-changer="setBackground: qalqilya">
+              <a-entity mixin="videoFrame" position="0.84 0 9.03" rotation="0 -150 0" bind__visible="background === 'qalqilya'"><a-entity mixin="videoPlayer" material="src: #qalqilya_vid1" videohandler="src: #qalqilya_vid1" position="0 0 0.01" rotation="0 0 0" bind-toggle__raycastable="background === 'qalqilya'"></a-entity></a-entity>
+              <a-entity mixin="videoFrame" position="3.5 0 7.5" rotation="0 -150 0" bind__visible="background === 'qalqilya'"><a-entity mixin="videoPlayer" material="src: #qalqilya_vid2" videohandler="src: #qalqilya_vid2" position="0 0 0.01" rotation="0 0 0" bind-toggle__raycastable="background === 'qalqilya'"></a-entity></a-entity>
+          </a-entity>
         </a-entity>
       </a-entity>
 
-     <a-entity id="kafrqaddamMenu" mixin="minimap" material="shader: flat; src: #kafr-qaddam-menu" bind__visible="menu === 'kafrqaddam' && background !== 'minimap'">
-        <a-entity class="buttons">
-          <a-entity mixin="pageButton" text="value: Parade" position="-0.50 0.55 0.02" event-set__click="_target: #image-360; _delay: 300; material.color: black" videohandler="src: #kafr-qaddam_vid" bind-toggle__raycastable="menu === 'kafrqaddam'" environment-changer="setBackground: kafr">
-            <a-videosphere src="#kafr-qaddam_vid" radius="500" bind__visible="background === 'kafr'"></a-videosphere>
-            <a-plane rotation="-90 0 0" height="1000" width="1000" material="color: black" position="0 -2 0"></a-plane>
-          </a-entity>
-          </a-entity>
-      </a-entity>
-
-     <a-entity id="jerusalemMenu" mixin="minimap" material="shader: flat; src: #jerusalem-menu" bind__visible="menu === 'jerusalem' && background !== 'minimap'">
-        <a-entity class="buttons">
-            <a-entity mixin="pageButton" text="value: Night Rooftop" position="-0.57 0.55 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/jerusalem/jeru-rooftop360.jpg" bind-toggle__raycastable="menu === 'jerusalem'" environment-changer="setBackground: jerusalemRoof">
-              <a-entity mixin="videoFrame" position="3.5 0 6" rotation="0 -90 90" bind__visible="background === 'jerusalemRoof'"><a-entity mixin="videoPlayer" material="src: #jerusalem_roof_vid" videohandler="src: #jerusalem_roof_vid" position="0 0 0.01" rotation="0 0 0" bind-toggle__raycastable="background === 'jerusalemRoof'"></a-entity></a-entity>
-            </a-entity>
-            <a-entity mixin="pageButton" text="value: Juice Shop" position="0.9 -0.24 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/jerusalem/jeru-juice-shop360.jpg" bind-toggle__raycastable="menu === 'jerusalem'"></a-entity>
-            <a-entity mixin="pageButton" text="value: Jesus' Tomb" position="1 0.55 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/jerusalem/jeru-jesus-tomb.jpeg" bind-toggle__raycastable="menu === 'jerusalem'"></a-entity>
-            <a-entity mixin="pageButton" text="value: Castle" position="-0.11 -0.920 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/jerusalem/jeru-castle360.jpg" bind-toggle__raycastable="menu === 'jerusalem'" environment-changer="setBackground: jerusalemGate">
-              <a-entity mixin="videoFrame" position="3.5 1.92 6" rotation="0 -90 90" bind__visible="background === 'jerusalemGate'"><a-entity mixin="videoPlayer" material="src: #jerusalem_gate_vid" videohandler="src: #jerusalem_gate_vid" position="0 0 0.01" rotation="0 0 0" bind-toggle__raycastable="background === 'jerusalemGate'"></a-entity></a-entity>
-            </a-entity>
-       </a-entity>
-      </a-entity>
-
-      <a-entity id="birzeitMenu" mixin="minimap" material="shader: flat; src: #birzeit-menu" bind__visible="menu === 'birzeit' && background !== 'minimap'">
-        <a-entity class="buttons">
-            <a-entity mixin="pageButton" text="value: Sunset" position="0.52 -0.63 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/birzeit/birz-sunset360.jpg" bind-toggle__raycastable="menu === 'birzeit'"></a-entity>
-            <a-entity mixin="pageButton" text="value: Museum Sun" position="1.17 -0.25 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/birzeit/birz-museum-sun360.jpg" bind-toggle__raycastable="menu === 'birzeit'"></a-entity>
-            <a-entity mixin="pageButton" text="value: Mosque" position="-0.52 -0.55 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/birzeit/birz-mosque360.jpg" bind-toggle__raycastable="menu === 'birzeit'"></a-entity>
-            <a-entity mixin="pageButton" text="value: Museum Sunset" position="0 0.806 0.02" event-set__click="_target: #image-360; _delay: 300; material.src: assets/birzeit/birz-museum-sunset360.jpg" bind-toggle__raycastable="menu === 'birzeit'"></a-entity>
-        </a-entity>
-      </a-entity>
-
-
+<!-- QUITO -->
     <a-entity id="model" bind__visible="menu === 'main'" bind__raycastable="menu === 'main'"
           obj-model="obj: #mount-obj; mtl: #mount-mtl" shader="flat"
           scale="0.2 0.2 0.2" position="-7 1 0" rotation="0 90 0"
@@ -317,4 +327,3 @@
     <div id="cameraObserver"></div>
   </body> 
 </html>
-  
