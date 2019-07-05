@@ -25,7 +25,7 @@
     <script>AFRAME.registerComponent('raycastable', {});</script>
   </head>
   <body>
-    <a-scene kafr-video spectator render-order="menuBackground, menuItem, button">
+    <a-scene spectator render-order="menuBackground, menuItem, button">
       <a-assets>
         <!-- Images -->
         <img id="mapIsrael" src="assets/misc/israelMap.png">
@@ -244,6 +244,7 @@
         <a-entity class="buttons">
           <a-entity mixin="pageButton" text="value: Parade" position="-0.50 0.55 0.02" event-set__click="_target: #image-360; _delay: 300; material.color: black" videohandler="src: #kafr-qaddam_vid" bind-toggle__raycastable="menu === 'kafrqaddam'" environment-changer="setBackground: kafr">
             <a-videosphere src="#kafr-qaddam_vid" radius="500" bind__visible="background === 'kafr'"></a-videosphere>
+            <a-image height="1" width="1" position="-1 -1 4.25" material="src: https://cdn.glitch.com/30c85152-7785-4a8c-8ec4-b836bad15a17%2F26025.png?v=1562075473450; shader: flat" rotation="0 30 0" bind__visible="background === 'kafr'" bind__raycastable="background === 'kafr'" videohandler="src: #kafr-qaddam_vid"></a-image>
             <a-plane rotation="-90 0 0" height="1000" width="1000" material="color: black" position="0 -2 0"></a-plane>
           </a-entity>
           </a-entity>
