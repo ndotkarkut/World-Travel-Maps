@@ -16,8 +16,8 @@ router.get('/palestine', function(req, res, next) {
   res.render('palestine_no_preload');
 });
 
-router.get('/network', function(req, res, next) {
-  res.render('network');
+router.get('/palestinexr', function(req, res, next) {
+  res.render('palestine_preload');
 });
 
 module.exports = router;
