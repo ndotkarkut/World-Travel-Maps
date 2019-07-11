@@ -76,31 +76,105 @@ AFRAME.registerComponent('environment-changer', {
          });
 
 // Component used to activate the 360 video when we are in the video's environment
-      AFRAME.registerComponent('kafr-video',{
-      init:function(){
-      
-      document.querySelector('#kafr-qaddam_vid').pause();
-      
-      this.el.addEventListener('click', () => {
-        if (state.background === 'kafr'){
-        document.querySelector('#kafr-qaddam_vid').play();
-      } else {
+        AFRAME.registerComponent('kafr-video',{
+        init:function(){
+
         document.querySelector('#kafr-qaddam_vid').pause();
-      }
-      });
-      
-      }
-      });
+
+        this.el.addEventListener('click', () => {
+          if (state.background === 'kafr'){
+          document.querySelector('#kafr-qaddam_vid').play();
+        } else {
+          document.querySelector('#kafr-qaddam_vid').pause();
+        }
+        });
+
+        }
+        });
 
 
 // Component used to make entities visible based on mouse entry/ exit
-    AFRAME.registerComponent('listener', {
-      init: function() {
-        this.el.addEventListener('mouseenter', (e) => {
-          this.el.setAttribute('visible', true);
-        })
-        this.el.addEventListener('mouseleave', (e) => {
-          this.el.setAttribute('visible', false);
-        })
-      }
-    });
+        AFRAME.registerComponent('listener', {
+          init: function() {
+            this.el.addEventListener('mouseenter', (e) => {
+              this.el.setAttribute('visible', true);
+            })
+            this.el.addEventListener('mouseleave', (e) => {
+              this.el.setAttribute('visible', false);
+            })
+          }
+        });
+
+// Component used to make new users spawn in a circle radius
+        AFRAME.registerComponent('spawn-in-circle', {
+          schema: {
+            radius: {type: 'number', default: 1}
+          },
+
+          init: function() {
+            var el = this.el;
+            var center = el.getAttribute('position');
+
+            var angleRad = this.getRandomAngleInRadians();
+            var circlePoint = this.randomPointOnCircle(this.data.radius, angleRad);
+            var worldPoint = {x: circlePoint.x + center.x, y: center.y, z: circlePoint.y + center.z};
+            el.setAttribute('position', worldPoint);
+            console.log('world point', worldPoint);
+
+            var angleDeg = angleRad * 180 / Math.PI;
+            var angleToCenter = -1 * angleDeg + 90;
+            var angleRad = THREE.Math.degToRad(angleToCenter);
+            el.object3D.rotation.set(0, angleRad, 0);
+            console.log('angle deg', angleDeg);
+          },
+
+          getRandomAngleInRadians: function() {
+            return Math.random()*Math.PI*2;
+          },
+
+          randomPointOnCircle: function (radius, angleRad) {
+            var x = Math.cos(angleRad)*radius;
+            var y = Math.sin(angleRad)*radius;
+            return {x: x, y: y};
+          }
+        });
+
+// Component used to link somebody to a website
+        AFRAME.registerComponent('website-link', {
+          schema: {
+            url: {default: ''}
+          },
+
+          init: function () {
+            var data = this.data;
+            var el = this.el;
+
+            el.addEventListener('click', function () {
+              window.open(data.url, '_blank');
+            });
+          }
+        });        
+
+
+// Component to activate the Sharing Links on keyboard clicks
+        AFRAME.registerComponent('share-to', {
+          init: function () {
+          var screenshot = document.querySelector('#Screenshot');
+          screenshot.setAttribute('visible', false);
+          
+        window.addEventListener('keydown', function (evt) {
+          // Alt + Ctrl + O: Shortcut to toggle the spectator camera
+          var ShareOn1 = evt.keyCode === 83 && evt.ctrlKey && evt.altKey;
+          var ShareOn2 = evt.keyCode === 83 && evt.ctrlKey && evt.altKey && evt.shiftKey;
+          var ShareOff = evt.keyCode === 27 && evt.ctrlKey && evt.altKey;
+
+          if (ShareOn1 || ShareOn2) {
+            screenshot.setAttribute('visible', true);
+           // mainCam.setAttribute('camera', 'active', false);
+          } else if (ShareOff) {
+            screenshot.setAttribute('visible', false);
+           // mainCam.setAttribute('camera', 'active', true);
+          }
+        });
+        }
+        });
